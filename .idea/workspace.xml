@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5eab7a2-045d-4542-b9c1-755a620becc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controllers/training.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/middleware/error.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/training.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/routes/trainings.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/training.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/training.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +50,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1620125709817</updated>
-      <workItem from="1620125711644" duration="4717000" />
+      <workItem from="1620125711644" duration="6055000" />
     </task>
     <servers />
   </component>
