@@ -9,14 +9,10 @@ import {
 
 const router = Router();
 
+// CRUD operations for trainings
 router.get('/', getTrainings);
-
 router.get('/:id', getTraining);
-
 router.post('/', createTraining);
-
 router.put('/:id', updateTraining);
-
 router.delete('/:id', deleteTraining);
-
-export default trainingsRouter;
+export default router;

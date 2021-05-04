@@ -1,4 +1,4 @@
-import { RequestHandler, Request, Response } from 'express';
+import { RequestHandler } from 'express';
 import { Training } from '../models/training';
 import { notFoundTrainingResponse } from '../utils/trainings';
 
