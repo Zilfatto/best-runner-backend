@@ -1,12 +1,21 @@
 import { RequestHandler } from 'express';
-import { Training } from '../models/training';
+import { Training, validateTraining } from '../models/training';
 import { notFoundTrainingResponse } from '../utils/trainings';
+import { badRequest } from '../utils/common';
 
 const TRAININGS: Training[] = [];
 
 export const createTraining: RequestHandler = (req, res, next) => {
-    const { distance, date, workoutType, comment } = (req.body as { distance: number, date: string, workoutType: string, comment: string });
-    const newTraining = new Training(Date.now(), distance, date, workoutType, comment);
+    const { distance, date, workoutType, comment } = req.body as Partial<Training>;
+
+    // Validate an incoming request data for training
+    const { error } = validateTraining({ distance, date, workoutType, comment });
+    if (error) {
+        return badRequest(res, error.details[0].message);
+    }
+
+    // Create a new training
+    const newTraining = new Training(Date.now(), distance!, date!, workoutType!, comment!);
 
     // Add created training to the DB emulator
     TRAININGS.push(newTraining);
@@ -31,7 +40,7 @@ export const getTraining: RequestHandler<{ id: number | string }> = (req, res, n
 
 export const updateTraining: RequestHandler<{ id: number | string }> = (req, res, next) => {
     const trainingId = req.params.id;
-    const newTrainingData = req.body as { distance: number, date: string, workoutType: string, comment: string };
+    const { distance, date, workoutType, comment } = req.body as Partial<Training>;
     const training = TRAININGS.find(training => training.id === trainingId);
 
     // Response for not existing training
@@ -39,11 +48,17 @@ export const updateTraining: RequestHandler<{ id: number | string }> = (req, res
         return notFoundTrainingResponse(res);
     }
 
+    // Validate new data for a training
+    const { error } = validateTraining({ distance, date, workoutType, comment });
+    if (error) {
+        return badRequest(res, error.details[0].message);
+    }
+
     // Update training data
-    training.distance = newTrainingData.distance;
-    training.date = newTrainingData.date;
-    training.workoutType = newTrainingData.workoutType;
-    training.comment = newTrainingData.comment;
+    training.distance = distance!;
+    training.date = date!;
+    training.workoutType = workoutType!;
+    training.comment = comment!;
 
     res.send(training);
 };
