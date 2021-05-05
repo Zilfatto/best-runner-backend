@@ -6,16 +6,16 @@ import { badRequest } from '../utils/common';
 const TRAININGS: Training[] = [];
 
 export const createTraining: RequestHandler = (req, res, next) => {
-    const { distance, date, workoutType, comment } = req.body as Partial<Training>;
+    const { distanceInKM, date, workoutType, comment } = req.body as Partial<Training>;
 
     // Validate an incoming request data for training
-    const { error } = validateTraining({ distance, date, workoutType, comment });
+    const { error } = validateTraining({ distanceInKM, date, workoutType, comment });
     if (error) {
         return badRequest(res, error.details[0].message);
     }
 
     // Create a new training
-    const newTraining = new Training(Date.now(), distance!, date!, workoutType!, comment!);
+    const newTraining = new Training(Date.now(), distanceInKM!, date!, workoutType!, comment!);
 
     // Add created training to the DB emulator
     TRAININGS.push(newTraining);
@@ -40,7 +40,7 @@ export const getTraining: RequestHandler<{ id: number | string }> = (req, res, n
 
 export const updateTraining: RequestHandler<{ id: number | string }> = (req, res, next) => {
     const trainingId = req.params.id;
-    const { distance, date, workoutType, comment } = req.body as Partial<Training>;
+    const { distanceInKM, date, workoutType, comment } = req.body as Partial<Training>;
     const training = TRAININGS.find(training => training.id === trainingId);
 
     // Response for not existing training
@@ -49,13 +49,13 @@ export const updateTraining: RequestHandler<{ id: number | string }> = (req, res
     }
 
     // Validate new data for a training
-    const { error } = validateTraining({ distance, date, workoutType, comment });
+    const { error } = validateTraining({ distanceInKM, date, workoutType, comment });
     if (error) {
         return badRequest(res, error.details[0].message);
     }
 
     // Update training data
-    training.distance = distance!;
+    training.distanceInKM = distanceInKM!;
     training.date = date!;
     training.workoutType = workoutType!;
     training.comment = comment!;

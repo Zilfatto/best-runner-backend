@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5eab7a2-045d-4542-b9c1-755a620becc6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/utils/common.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/training.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/training.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/training.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/training.ts" afterDir="false" />
     </list>
@@ -54,7 +53,8 @@
       <option name="presentableId" value="Default" />
       <updated>1620125709817</updated>
       <workItem from="1620125711644" duration="6055000" />
-      <workItem from="1620150747597" duration="5959000" />
+      <workItem from="1620150747597" duration="6067000" />
+      <workItem from="1620205985129" duration="716000" />
     </task>
     <servers />
   </component>
