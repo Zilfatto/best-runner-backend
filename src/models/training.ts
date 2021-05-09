@@ -13,10 +13,10 @@ export class Training {
 // For validating request data before creating or updating a training
 export function validateTraining(training: Partial<Training>) {
     const schema = Joi.object({
-        distanceInKM: Joi.string().min(0.1).required(),
+        distanceInKM: Joi.number().positive().precision(1).required(),
         date: Joi.date().required(),
         workoutType: Joi.string().required(),
-        comment: Joi.string()
+        comment: Joi.optional()
     });
     // Return validation result
     return schema.validate(training);
