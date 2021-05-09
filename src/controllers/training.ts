@@ -27,7 +27,7 @@ export const getTrainings: RequestHandler = (req, res, next) => {
 };
 
 export const getTraining: RequestHandler<{ id: number | string }> = (req, res, next) => {
-    const trainingId = req.params.id;
+    const trainingId = Number(req.params.id);
     const training = TRAININGS.find(training => training.id === trainingId);
 
     // Response for not existing training
@@ -39,7 +39,7 @@ export const getTraining: RequestHandler<{ id: number | string }> = (req, res, n
 };
 
 export const updateTraining: RequestHandler<{ id: number | string }> = (req, res, next) => {
-    const trainingId = req.params.id;
+    const trainingId = Number(req.params.id);
     const { distanceInKM, date, workoutType, comment } = req.body as Partial<Training>;
     const training = TRAININGS.find(training => training.id === trainingId);
 
@@ -64,7 +64,7 @@ export const updateTraining: RequestHandler<{ id: number | string }> = (req, res
 };
 
 export const deleteTraining: RequestHandler<{ id: number | string }> = (req, res, next) => {
-    const trainingId = req.params.id;
+    const trainingId = Number(req.params.id);
     const trainingIndex = TRAININGS.findIndex(training => training.id === trainingId);
 
     // Response for not existing training
@@ -75,5 +75,5 @@ export const deleteTraining: RequestHandler<{ id: number | string }> = (req, res
     // Delete a specified training
     TRAININGS.splice(trainingIndex, 1);
 
-    res.json({ message: 'Training deleted!' });
+    res.send({id: trainingId});
 };
