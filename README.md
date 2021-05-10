@@ -1,8 +1,8 @@
 # How to run the code
 
 For this you need to have Node installed and run the following command - 'npm install'.
-After that you need to run the next command - 'tsc'.
-Then run 'node dist/app.js'
+After that you need to run the next command, to compile TypeScript - 'tsc'.
+Then run 'npm start'
 And that's it, the server is running!
 
 ---
