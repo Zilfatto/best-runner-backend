@@ -6,7 +6,7 @@ export class Training {
         public distanceInKM: number,
         public date: string,
         public workoutType: string,
-        public comment: string
+        public comment?: string
     ) {}
 }
 

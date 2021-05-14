@@ -15,7 +15,7 @@ export const createTraining: RequestHandler = (req, res, next) => {
     }
 
     // Create a new training
-    const newTraining = new Training(Date.now(), distanceInKM!, date!, workoutType!, comment!);
+    const newTraining = new Training(Date.now(), distanceInKM!, date!, workoutType!, comment);
 
     // Add created training to the DB emulator
     TRAININGS.push(newTraining);
@@ -58,7 +58,7 @@ export const updateTraining: RequestHandler<{ id: number | string }> = (req, res
     training.distanceInKM = distanceInKM!;
     training.date = date!;
     training.workoutType = workoutType!;
-    training.comment = comment!;
+    training.comment = comment;
 
     res.send(training);
 };
